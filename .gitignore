@@ -1,0 +1,7 @@
+/.devcontainer
+/.vscode
+/env.setup.sh
+/git.sh
+/blogpost/*
+/tmp/*
+tmp/
