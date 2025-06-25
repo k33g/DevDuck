@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 6060:8000
+      - 8000:8000
     environment:
       PORT: 8000
       DMR_BASE_URL: http://model-runner.docker.internal
