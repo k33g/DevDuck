@@ -7,8 +7,6 @@ services:
       - 8000:8000
     environment:
       PORT: 8000
-      DMR_BASE_URL: http://model-runner.docker.internal
-      MODEL_RUNNER_CHAT_MODEL: ai/qwen2.5:latest
       AGENT_NAME: DevDuck
       AGENT_DESCRIPTION: DevDuck is a helpful assistant for Golang developers.
       AGENT_INSTRUCTION: |
@@ -129,11 +127,11 @@ services:
 
         Remember: Always prioritize correctness, clarity, and Go idiomatic patterns in your responses.  
 
-    depends_on:
-      - download-chat-model
-      
-  download-chat-model:
-    provider:
-      type: model
-      options:
-        model: ai/qwen2.5:latest
+    models:
+      qwen2_5:
+        endpoint_var: MODEL_RUNNER_BASE_URL
+        model_var: MODEL_RUNNER_CHAT_MODEL
+
+models:
+  qwen2_5:
+    model: ai/qwen2.5:latest
